@@ -1,0 +1,48 @@
+﻿@model TravelTripProje.Models.Siniflar.Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Giriş</title>
+
+    <link href="@Url.Content("~/weblogin/css/style.css")" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="padding-all">
+        <div class="header">
+            <h1>Tatil Seyahat Bloğu Giriş Formu</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+
+                @using (Html.BeginForm("Login", "GirisYap", FormMethod.Post))
+                {
+                    @Html.TextBoxFor(x => x.Kullanici,
+                        new { placeholder = "Kullanıcı Adınız..." })
+
+                    @Html.PasswordFor(x => x.Sifre,
+                        new { @class = "padding", placeholder = "Şifreniz..." })
+
+                    <input type="submit" value="Giriş Yap" />
+
+                    if (ViewBag.Hata != null)
+                    {
+                        <div style="color:red;margin-top:10px">
+                            @ViewBag.Hata
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
